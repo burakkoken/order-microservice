@@ -1,0 +1,23 @@
+server:
+  port: ${ORDER_MICROSERVICE_PORT:8087}
+spring:
+  application:
+    name: readingisgood-order-microservice
+  jackson:
+    serialization:
+      indent_output: true
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAPSERVERS:http://192.168.99.100:9092}
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_SERVER:http://192.168.99.100:8761/eureka/}
+    register-with-eureka: true
+    fetch-registry: true
+    healthcheck:
+      enabled: true
+  instance:
+    preferIpAddress: true
+logging:
+  level:
+    org.readingisgood: DEBUG
